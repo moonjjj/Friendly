@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import Main from "./pages/main/Main.js"
-import MbtiInfo from './pages/mbtiGetInfo/MbtiInfo.js'; 
+import MbtiInfo from './pages/mbtiGetInfo/MbtiInfo.js';
 
 function App() {
   return (
