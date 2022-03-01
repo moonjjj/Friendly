@@ -1,3 +1,86 @@
-body{
-    background-color: antiquewhite;
+@font-face {
+    font-family: 'jua';
+    src: url('../font/Jua-Regular.ttf');
+}
+@font-face {
+    font-family: 'noto_sans';
+    src: url('../font/NotoSansKR-Medium.otf');
+}
+
+.App{
+    background-image: url("../img/bg_icons.png");
+    background-size:270px;
+    background-color: #abecd96c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height:100vh;
+    width: 100%;
+    font-family: 'noto_sans';
+}
+
+
+.main_wrap{
+    border: 4px solid #0abe87;
+    border-radius: 6px;
+    background-color: #fff;
+    width: 80%;
+    max-width:500px;
+    height:500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1;
+    font-family: 'jua';
+}
+
+.main_select_container{
+    padding: 20px 0;
+    width:90%;
+    display: flex;
+    flex-direction: column;
+}
+.main_select_container span{
+}
+.main_select_box{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+.main_select_box input{
+    width:100%;
+    height: 30px;
+    border:1px solid #d2d2d2;
+    outline: none;
+}
+.main_select_box input::selection{
+}
+.main_select_box select{
+    outline: none;
+    width:100%;
+    height:36px;
+    border:1px solid #d2d2d2;
+}
+.mbti_info{
+    color:#787878;
+    font-size:12px;
+}
+.mbti_link{
+    background-color: #0abe87;
+}
+.mbti_select{
+    font-size:60px;
+    height:100px !important;
+    text-align: center;
+    color:#0abe87;
+    margin:0 4px;
+    border: 2px solid #d2d2d2 !important;
+    cursor: pointer;
+}
+.mbti_option{
+    font-size:14px;
+}
+.go_mbti_btn{
+    font-size:60px;
 }
