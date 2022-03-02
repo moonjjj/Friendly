@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch,useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import '../../assets/css/main.css';
+import MbtiInfo from '../mbtiGetInfo/MbtiInfo';
 
+import { actions } from '../../redux/action/action';
 
 
 export default function Main(){
+
+    const {mbtiIsRight} = useSelector((state)=>({ //redux에 값이 있다면 입력창이 아닌 정보창으로 이동
+        userMBTI:state.mbti,
+    }));
+
     let history = useHistory();
+    let dispatch = useDispatch();
     var mbti = '';
     const [userMBTI, setUserMBTI] = useState({ //mbti 4가지 받음
         mbti1:'', // i or e
@@ -13,7 +22,6 @@ export default function Main(){
         mbti3:'', // f or t
         mbti4:''  // j or p
     });
-    const [MBTIResult, setMBTIResult] = useState();
     const [userData, setUserData] = useState({
         userName:'', // 유저 이름
         userColor:'#abecd96c' // 초기값 미리 지정 (현재색상)
@@ -27,7 +35,10 @@ export default function Main(){
             for(let i =0; i<4; i++){ //object value값을 mbti라는 변수에 담음
                 mbti = mbti + Object.values(userMBTI)[i];
             }
-            history.push({
+            dispatch(actions.setUser(userData));
+            dispatch(actions.setMBTI(mbti));
+            
+            history.push({ //지금은 데이터를 state에 담아 보냈지만, redux로 교체예정
                 pathname: '/MbtiInfo',
                 state: {
                   userData: userData,
@@ -37,6 +48,8 @@ export default function Main(){
         }
     }
     return(
+        <>
+        {!mbtiIsRight ? 
         <div className="main_wrap">
             <div className="main_select_container">
                 <span>MBTI (아래 박스를 클릭하여 선택해주세요)</span>
@@ -65,8 +78,8 @@ export default function Main(){
                     }}
                     >
                         <option value=""></option>
-                        <option value="t">T</option>
-                        <option value="f">F</option>
+                        <option value="t">F</option>
+                        <option value="f">T</option>
                     </select>
                     <select className="mbti_select"
                     onChange={(e)=>{
@@ -110,9 +123,9 @@ export default function Main(){
                     </select>
                 </div>
             </div>
-        
             <div className="go_mbti_btn" onClick={nextValidationFnc}>GO</div>
-        
         </div>
+        :<MbtiInfo/>}
+        </>
     )
 }
