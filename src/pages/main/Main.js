@@ -9,9 +9,10 @@ import { actions } from '../../redux/action/action';
 
 export default function Main(){
 
-    const {mbtiIsRight} = useSelector((state)=>({ //redux에 값이 있다면 입력창이 아닌 정보창으로 이동
-        userMBTI:state.mbti,
-    }));
+    const {userColor} = useSelector((state)=>({
+        userColor:state.userData.userColor,  
+      }));
+    console.log(userColor);
 
     let history = useHistory();
     let dispatch = useDispatch();
@@ -39,17 +40,13 @@ export default function Main(){
             dispatch(actions.setMBTI(mbti));
             
             history.push({ //지금은 데이터를 state에 담아 보냈지만, redux로 교체예정
-                pathname: '/MbtiInfo',
-                state: {
-                  userData: userData,
-                  mbti: mbti
-                },
+                pathname: '/MbtiInfo'
             });
         }
     }
     return(
         <>
-        {!mbtiIsRight ? 
+        {!userColor ? 
         <div className="main_wrap">
             <div className="main_select_container">
                 <span>MBTI (아래 박스를 클릭하여 선택해주세요)</span>
