@@ -12,7 +12,6 @@ export default function Main(){
     const {userColor} = useSelector((state)=>({
         userColor:state.userData.userColor,  
       }));
-    console.log(userColor);
 
     let history = useHistory();
     let dispatch = useDispatch();
@@ -44,6 +43,9 @@ export default function Main(){
             });
         }
     }
+        // if (window.event.keyCode == 13) {
+        //     nextValidationFnc(); // enter
+        // }
     return(
         <>
         {!userColor ? 
@@ -57,8 +59,8 @@ export default function Main(){
                     }}
                     >
                         <option value=""></option>
-                        <option value="i">I</option>
-                        <option value="e">E</option>
+                        <option value="I">I</option>
+                        <option value="E">E</option>
                     </select>
                     <select className="mbti_select"
                     onChange={(e)=>{
@@ -66,8 +68,8 @@ export default function Main(){
                     }}
                     >
                         <option value=""></option>
-                        <option value="s">S</option>
-                        <option value="n">N</option>
+                        <option value="S">S</option>
+                        <option value="N">N</option>
                     </select>
                     <select className="mbti_select"
                     onChange={(e)=>{
@@ -75,8 +77,8 @@ export default function Main(){
                     }}
                     >
                         <option value=""></option>
-                        <option value="t">F</option>
-                        <option value="f">T</option>
+                        <option value="F">F</option>
+                        <option value="T">T</option>
                     </select>
                     <select className="mbti_select"
                     onChange={(e)=>{
@@ -84,8 +86,8 @@ export default function Main(){
                     }}
                     >
                         <option value=""></option>
-                        <option value="j">J</option>
-                        <option value="p">P</option>
+                        <option value="J">J</option>
+                        <option value="P">P</option>
                     </select>
                 </div>
             </div>
@@ -113,10 +115,10 @@ export default function Main(){
                     }}>
                         <option value="#abecd96c">연초록색</option>
                         <option value="#ffffff">흰색</option>
-                        <option value="#fffff">연노랑색</option>
-                        <option value="#fffff">연보라색</option>
-                        <option value="#fffff">하늘색</option>
-                        <option value="#fffff">연분홍색</option>
+                        <option value="#ebeec46c">연노랑색</option>
+                        <option value="#d692ec6c">연보라색</option>
+                        <option value="#c4e4ee6c">하늘색</option>
+                        <option value="#f2e2f46c">연분홍색</option>
                     </select>
                 </div>
             </div>

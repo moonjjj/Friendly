@@ -3,10 +3,7 @@ const types = {
     SET_USER: 'SET_USER',
     SET_MBTI: 'SET_MBTI',
 };
-const userDefault = {
-    userData : false,
-    mbti : false,
-}
+const userDefault = false;
 
 export default (state = userDefault, action) => {
     switch (action.type) {
